@@ -94,16 +94,6 @@ export default {
 
       return `${first} - ${last} ${this.ofText} ${this.total}`;
     },
-
-    // Can go to next page
-    nextIsPossible() {
-      return this.currentPage < this.pagesCount;
-    },
-
-    // Can go to previous page
-    prevIsPossible() {
-      return this.currentPage > 1;
-    },
   },
 
   methods: {
@@ -113,24 +103,6 @@ export default {
         this.prevPage = this.currentPage;
         this.currentPage = pageNumber;
         if (emit) this.pageChanged();
-      }
-    },
-
-    // Go to next page
-    nextPage() {
-      if (this.nextIsPossible) {
-        this.prevPage = this.currentPage;
-        ++this.currentPage;
-        this.pageChanged();
-      }
-    },
-
-    // Go to previous page
-    previousPage() {
-      if (this.prevIsPossible) {
-        this.prevPage = this.currentPage;
-        --this.currentPage;
-        this.pageChanged();
       }
     },
 
